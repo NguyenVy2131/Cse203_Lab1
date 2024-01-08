@@ -15,6 +15,11 @@ public class Ques6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String n = sc.nextLine();
-        System.out.println(n.length());
+        String[] splits = n.split("\\s");
+        int count=0;
+        for(int i=0;i<splits.length;i++){
+            count++;
+        }
+        System.out.println(count);
     }
 }
