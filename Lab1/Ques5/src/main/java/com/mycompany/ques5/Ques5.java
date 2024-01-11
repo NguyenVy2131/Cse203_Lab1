@@ -16,45 +16,61 @@ public class Ques5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n=sc.nextInt();
-        int b = sc.nextInt();
-        int number = sc.nextInt();
-        
-        
-        
-        
+        ArrayList<Integer> array = new ArrayList<>();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+            array.add(arr[i]);
         }
+        insertelement(5,2,array);
         
-    
-    public static boolean removespecific (int n,int number,int b){
-        int flag;
-       ArrayList<Integer> arraylist = new ArrayList<>();
-       ArrayList<Integer> subarraylist = new ArrayList<>();
-       for(int i=0;i<n;i++){
-            arraylist.add(number);
+        System.out.println(array);
+        
+       
         }
-       if(arraylist.contains(b)){
-            subarraylist.add(b);
-            arraylist.removeAll(subarraylist);
+     
+    static boolean removefirstelement (ArrayList<Integer>array){
+        if(array.isEmpty()){
+            return false;
+        }
+        else{
+            array.remove(0);
             return true;
         }
-       else{
-           return false;
        }
-}
-    public static int insertelement(int n, int number,int b, int c){
-        ArrayList<Integer> arraylist = new ArrayList<>();
-        ArrayList<Integer> subarraylist = new ArrayList<>();
-        for(int i=0;i<n;i++){
-            arraylist.add(number);
-        }
-        arraylist.add(c,b);
-        for(int i=0;i<arraylist.size();i++){
-            subarraylist.add(arraylist.size()-1);
-            return arraylist.get(i);
-        }
+    static void insertelement(int number, int position,ArrayList<Integer>array){
+        array.add(position,number);
+        array.remove(array.size()-1);
+       
+    }
         
-    
+    static int count(int N, int[] arr) {
+        int counts = 0;
+        for (int i : arr) {
+            if (i == N) {
+                counts++;
+            }
+        }
+        return counts;
     }
     
+    static ArrayList<Integer> findduplicatevalue (int[] arr){
+        ArrayList<Integer> subarray = new ArrayList<>();
+        for(int i=0;i<arr.length;i++){
+            if(count(arr[i], arr)!=1 && !subarray.contains(arr[i])){
+                subarray.add(arr[i]);
+            }
+        }
+        return subarray;
+    }
+    static ArrayList<Integer> removeduplicatevalue (int[] arr){
+        ArrayList<Integer> subarray = new ArrayList<>();
+        for(int i=0;i<arr.length;i++){
+            if(!subarray.contains(arr[i])){
+                subarray.add(arr[i]);
+            }
+        }
+        return subarray;
+    }
 }
 
