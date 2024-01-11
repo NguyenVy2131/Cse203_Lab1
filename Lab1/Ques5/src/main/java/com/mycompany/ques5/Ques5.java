@@ -24,7 +24,7 @@ public class Ques5 {
         }
         insertelement(5,2,array);
         
-        System.out.println(array);
+        System.out.println(removefirstelement(array));
         
        
         }
